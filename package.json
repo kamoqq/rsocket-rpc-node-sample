@@ -1,0 +1,29 @@
+{
+  "name": "rsocket-rpc-node-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kamoqq/rsocket-rpc-node-sample.git",
+  "author": "kamoqq <kamoqq@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "protoc": "protoc --proto_path=./protos --js_out=import_style=commonjs,binary:./protos --rsocket_rpc_out=./protos --plugin=protoc-gen-rsocket_rpc=node_modules/.bin/rsocket_rpc_js_protoc_plugin helloworld.proto",
+    "webpack": "webpack",
+    "build": "yarn run protoc; yarn run webpack"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "google-protobuf": "^3.12.2",
+    "rsocket-flowable": "^0.0.14",
+    "rsocket-rpc-core": "^0.1.6",
+    "rsocket-rpc-metrics": "^0.1.6",
+    "rsocket-rpc-tracing": "^0.1.6",
+    "rsocket-websocket-client": "^0.0.19",
+    "rsocket-websocket-server": "^0.0.19"
+  },
+  "devDependencies": {
+    "rsocket-rpc-protobuf": "^0.1.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
